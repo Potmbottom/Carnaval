@@ -14,7 +14,6 @@ namespace InternalAssets.Resources.Database.Models
 		public float CameraSmooth;
 		public float SpawnRange;
 		public float SpawnDistance;
-		public int FieldElementMax;
 		public int FinishDistance;
 
 		public RoadView FieldPrefabDefault;

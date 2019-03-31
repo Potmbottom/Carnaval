@@ -14,7 +14,7 @@ namespace InternalAssets.Scripts.Lobby
 {
 	public class LobbyLauncher : MonoBehaviourPunCallbacks, IOnEventCallback
 	{
-		private const byte MaxPlayers = 4;
+		private const byte MaxPlayers = 2;
 		
 		[SerializeField] private Button _connectButton;
 		[SerializeField] private Button _startButton;
@@ -60,6 +60,12 @@ namespace InternalAssets.Scripts.Lobby
 			_panel.SetActive(true);
 			_finishView.gameObject.SetActive(true);
 			_finishView.Init(winner);
+
+			if (PhotonNetwork.IsMasterClient)
+			{
+				_startButton.enabled = true;
+				_startButton.gameObject.SetActive(true);
+			}
 		}
 		
 		private void InitManagers()
@@ -86,6 +92,7 @@ namespace InternalAssets.Scripts.Lobby
 		private void Connect()
 		{
 			_isConnecting = true;
+			_connectButton.gameObject.SetActive(false);
 			_connectButton.enabled = false;
 			
 			if (PhotonNetwork.IsConnected)
@@ -105,32 +112,22 @@ namespace InternalAssets.Scripts.Lobby
 
 			if (_isConnecting)
 			{
-				Debug.Log("PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN. Now this client is connected and could join a room.\n Calling: PhotonNetwork.JoinRandomRoom(); Operation will fail if no room found");
-		
-				// #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
 				PhotonNetwork.JoinRandomRoom();
 			}
 		}
 
 		public override void OnJoinRandomFailed(short returnCode, string message)
 		{
-			//Debug.Log("PUN Basics Tutorial/Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
-
-			// #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
 			PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = MaxPlayers});
 		}
 
 		public override void OnDisconnected(DisconnectCause cause)
 		{
-			//Debug.LogError("PUN Basics Tutorial/Launcher:Disconnected");
-
 			_isConnecting = false;
 		}
 
 		public override void OnJoinedRoom()
 		{
-			//Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.\nFrom here on, your game would be running.");
-		
 			_connectButton.gameObject.SetActive(false);
 			_loadingText.gameObject.SetActive(true);
 			UpdateConnectedLabel();
@@ -196,8 +193,8 @@ namespace InternalAssets.Scripts.Lobby
 			if(!PhotonNetwork.IsMasterClient) return;
 
 			var level = ScriptableUtils.GetLevelRecord();
-			//var value = PhotonNetwork.CurrentRoom.PlayerCount >= level.MinPlayersToStart;
-			_startButton.gameObject.SetActive(true);
+			var value = PhotonNetwork.CurrentRoom.PlayerCount >= level.MinPlayersToStart;
+			_startButton.gameObject.SetActive(value);
 		}
 
 		#endregion

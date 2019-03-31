@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 421796}
   - component: {fileID: 2556221615004023517}
-  - component: {fileID: 7492837387400701075}
   - component: {fileID: 8087361171591200100}
   - component: {fileID: 2938323984444538253}
   m_Layer: 0
-  m_Name: SlotCar_A
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,20 +50,6 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 114
   m_CollisionDetection: 0
---- !u!114 &7492837387400701075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63a7bd28f3cc4e2fbb2ac9dfabbbd6f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Kicked: 0
-  Disabled: 0
 --- !u!114 &8087361171591200100
 MonoBehaviour:
   m_ObjectHideFlags: 0

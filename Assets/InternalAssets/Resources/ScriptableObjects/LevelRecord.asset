@@ -14,13 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartTimer: 10
   MinPlayersToStart: 2
-  PlayerSpeed: 8
+  PlayerSpeed: 6
   KickDistance: 15
   CameraSmooth: 0.1
   SpawnRange: 10
-  SpawnDistance: 5
-  FieldElementMax: 3
-  FinishDistance: 250
+  SpawnDistance: 10
+  FinishDistance: 150
   FieldPrefabDefault: {fileID: 7152664287713390833, guid: a3e2826f679439048ba8a59a3eb4c072,
     type: 3}
   FieldPrefabStart: {fileID: 3133235262182556998, guid: d6160f3bb31da5745b23a7a2496d1121,
