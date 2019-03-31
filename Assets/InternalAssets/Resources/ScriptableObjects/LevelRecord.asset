@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6646edbc054fc9be67d501a53925b8, type: 3}
+  m_Name: LevelRecord
+  m_EditorClassIdentifier: 
+  StartTimer: 10
+  MinPlayersToStart: 2
+  PlayerSpeed: 8
+  KickDistance: 15
+  CameraSmooth: 0.1
+  SpawnRange: 10
+  SpawnDistance: 5
+  FieldElementMax: 3
+  FinishDistance: 250
+  FieldPrefabDefault: {fileID: 7152664287713390833, guid: a3e2826f679439048ba8a59a3eb4c072,
+    type: 3}
+  FieldPrefabStart: {fileID: 3133235262182556998, guid: d6160f3bb31da5745b23a7a2496d1121,
+    type: 3}
+  FieldPrefabFinish: {fileID: 1043979594172675583, guid: c8e4f0cb89e90be41894f446ec6964cf,
+    type: 3}
